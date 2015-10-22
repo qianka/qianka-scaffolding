@@ -2,7 +2,11 @@
 
 ```
 $ brew install cookiecutter
-$ cookiecutter https://git.qianka.com/qianka/qianka-scaffolding 
+$ cookiecutter gh:qianka/qianka-scaffolding 
+```
+
+```
+$ cookiecutter git@git.qianka.com/qianka/qianka-scaffolding 
 ```
 
 ```

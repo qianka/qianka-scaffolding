@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
+import os
+
 from celery import Celery
+from redis import StrictRedis
 
 from qianka.flaskext import QKFlask
 from qianka.flaskext.sessions import RedisSessionInterface
@@ -22,10 +25,11 @@ class Application(QKFlask):
         from . import default_settings
         self.config.from_object(default_settings)
         if '{{ cookiecutter.repo_name | upper }}_CONFIG' in os.environ:
-            config.from_envvar('{{ cookiecutter.repo_name | upper }}_CONFIG', silent=True)
+            self.config.from_envvar('{{ cookiecutter.repo_name | upper }}_CONFIG', silent=True)
         else:
-            dev_cfg = os.path.abspath(os.path.join(root_path, 'dev.cfg'))
-            config.from_pyfile(dev_cfg)
+            dev_cfg = os.path.abspath(os.path.join(
+                os.path.basename(__file__), 'dev.cfg'))
+            self.config.from_pyfile(dev_cfg, silent=True)
 
     def prepare_session(self):
         from redis import StrictRedis

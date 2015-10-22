@@ -21,7 +21,11 @@ class Application(QKFlask):
 
         from . import default_settings
         self.config.from_object(default_settings)
-        # TODO:
+        if '{{ cookiecutter.repo_name | upper }}_CONFIG' in os.environ:
+            config.from_envvar('{{ cookiecutter.repo_name | upper }}_CONFIG', silent=True)
+        else:
+            dev_cfg = os.path.abspath(os.path.join(root_path, 'dev.cfg'))
+            config.from_pyfile(dev_cfg)
 
     def prepare_session(self):
         from redis import StrictRedis

@@ -1,0 +1,33 @@
+{% raw -%}
+{% extends '_layout.html' %}
+
+{% block content %}
+  <h1>It works!</h1>
+
+  <hr />
+  <!-- bootstrap -->
+  <button type="button" class="btn btn-default" aria-label="Left Align">
+    <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+  </button>
+
+  <hr />
+  <!-- font-awewome -->
+  <i class="fa fa-spinner fa-spin fa-lg"></i>
+  <i class="fa fa-circle-o-notch fa-spin fa-2x"></i>
+  <i class="fa fa-refresh fa-spin fa-3x"></i>
+  <i class="fa fa-cog fa-spin fa-4x"></i>
+  <i class="fa fa-spinner fa-pulse fa-5x"></i>
+
+{% endblock %}
+
+{% block styles %}
+  {% assets "_.css" %}<link href="{{ ASSET_URL }}" rel="stylesheet" media="screen"/>{% endassets %}
+  <link href="{{ url_for('/assets/vendor/bootstrap', filename='css/bootstrap.min.css') }}" rel="stylesheet" media="screen"/>
+  <link href="{{ url_for('/assets/vendor/font-awesome', filename='css/font-awesome.min.css') }}" rel="stylesheet" media="screen"/>
+{% endblock %}
+
+{% block mainscript %}{% assets "_.js" %}data-main="{{ ASSET_URL }}"{% endassets %}{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+{% endraw -%}

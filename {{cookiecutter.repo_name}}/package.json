@@ -1,0 +1,18 @@
+{
+  "name": "{{ cookiecutter.repo_name }}",
+  "version": "{{ cookiecutter.version }}",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "^1.5.3",
+    "coffee-script": "^1.10.0",
+    "stylus": "^0.52.4",
+    "uglifyjs": "^2.4.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Qianka Inc.",
+  "license": "ISC"
+}

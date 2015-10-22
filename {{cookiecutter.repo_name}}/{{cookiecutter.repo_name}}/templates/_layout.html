@@ -1,0 +1,24 @@
+{% raw -%}
+<!doctype html>
+<html>
+  <head>
+    {% strip %}
+      <meta charset="utf-8"/>
+
+      {% block meta %}{% endblock meta %}
+
+      <title>{% block title %}{% endblock %}</title>
+
+      {% assets "site.css" %}<link href="{{ ASSET_URL }}" rel="stylesheet" media="screen"/>{% endassets %}
+      {% block styles %}{% endblock %}
+      {% assets "site.js" %}<script type="text/javascript" src="{{ ASSET_URL }}" {% block mainscript %}{% endblock %}></script>{% endassets %}
+
+    {% endstrip %}
+  </head>
+
+  <body>
+    {% block content %}{% endblock %}
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
+{%- endraw %}

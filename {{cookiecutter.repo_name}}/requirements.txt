@@ -17,5 +17,5 @@ SQLAlchemy==1.0.9
 webassets==0.11.1
 Werkzeug==0.10.4
 
--e git+ssh://git@git.qianka.com/qianka/qianka-flaskext#egg=qianka-flaskext
--e git+ssh://git@git.qianka.com/qianka/qianka-sqlalchemy#egg=qianka-sqlalchemy
+-e git+https://github.com/qianka/qianka-flaskext#egg=qianka-flaskext
+-e git+https://github.com/qianka/qianka-sqlalchemy#egg=qianka-sqlalchemy
